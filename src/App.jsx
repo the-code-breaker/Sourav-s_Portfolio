@@ -7,11 +7,11 @@ import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Certifications from "./components/Certifications";
-import GitHubStats from "./components/GitHubStats";
 import Blog from "./components/Blog";
 import Learning from "./components/Learning";
 import Compiler from "./components/Compiler";
 import Contact from "./components/Contact";
+import Resume from "./components/Resume";
 import Footer from "./components/Footer";
 import StarsCanvas from "./components/canvas/Stars";
 import ScrollProgress from "./components/ScrollProgress";
@@ -64,7 +64,6 @@ function HomePage() {
       <Skills />
       <Projects />
       <Certifications />
-      <GitHubStats />
       <Contact />
       <AdminPanel />
     </>
@@ -95,6 +94,14 @@ function PlaygroundPage() {
   );
 }
 
+function ResumePage() {
+  return (
+    <div className="pt-24">
+      <Resume />
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <Layout>
@@ -103,6 +110,7 @@ export default function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/learning" element={<LearningPage />} />
         <Route path="/playground" element={<PlaygroundPage />} />
+        <Route path="/resume" element={<ResumePage />} />
       </Routes>
     </Layout>
   );
