@@ -204,3 +204,113 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* ── Print / Save-as-PDF (Resume page) ───────────────────── */
+@media print {
+  /* margin:0 removes the browser-added header/footer (URL, date, page no.) */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+  }
+
+  /* Hide everything, then reveal only the resume paper */
+  body * {
+    visibility: hidden;
+  }
+  #resume-paper,
+  #resume-paper * {
+    visibility: visible;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  /* Neutralize ancestor positioning/padding so the paper anchors to the page top */
+  #resume,
+  .pt-24,
+  .relative {
+    position: static !important;
+  }
+  #resume,
+  .pt-24 {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+  }
+
+  /* Reset the resume paper to fill the printed page cleanly.
+     Internal padding replaces the (now removed) page margin.
+     position:absolute (with static ancestors) anchors to the page top and,
+     unlike fixed, never clips content — so all sections print. */
+  #resume-paper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0.6cm 1.4cm !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #1a1a1a !important;
+    transform: none !important;
+    opacity: 1 !important;
+    font-size: 10.8px !important;
+    line-height: 1.42 !important;
+  }
+
+  /* Typography and spacing tuned to fill a single page top-to-bottom */
+  #resume-paper h1 {
+    font-size: 22px !important;
+  }
+  #resume-paper h2 {
+    font-size: 13px !important;
+    margin-top: 12px !important;
+    margin-bottom: 5px !important;
+    padding-bottom: 3px !important;
+  }
+  #resume-paper p,
+  #resume-paper li,
+  #resume-paper span,
+  #resume-paper a {
+    font-size: 10.8px !important;
+  }
+  #resume-paper ul {
+    margin-top: 3px !important;
+    margin-bottom: 0 !important;
+  }
+  #resume-paper li {
+    margin: 0 0 2px 0 !important;
+  }
+  #resume-paper .mb-4 {
+    margin-bottom: 8px !important;
+  }
+  #resume-paper .mb-3 {
+    margin-bottom: 6px !important;
+  }
+  #resume-paper .mt-3 {
+    margin-top: 6px !important;
+  }
+  #resume-paper .space-y-1 > * + * {
+    margin-top: 2px !important;
+  }
+  #resume-paper .space-y-1\.5 > * + * {
+    margin-top: 3px !important;
+  }
+
+  /* Keep sections and entries from splitting across pages */
+  #resume-paper ul,
+  #resume-paper li,
+  #resume-paper h2,
+  #resume-paper .mb-4,
+  #resume-paper .mb-3 {
+    break-inside: avoid;
+  }
+}
+

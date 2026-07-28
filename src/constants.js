@@ -8,6 +8,7 @@ export const navLinks = [
   { id: "blog", title: "Blog", path: "/blog" },
   { id: "learning", title: "Learning", path: "/learning" },
   { id: "compiler", title: "Playground", path: "/playground" },
+  { id: "resume", title: "Resume", path: "/resume" },
   { id: "contact", title: "Contact" },
 ];
 

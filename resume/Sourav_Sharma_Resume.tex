@@ -1,0 +1,162 @@
+%-------------------------------------------------------------------------------
+% Sourav Sharma — Resume
+% Compile with: pdflatex Sourav_Sharma_Resume.tex
+% Layout uses plain-paragraph alignment (no tables) for reliable ATS parsing.
+%-------------------------------------------------------------------------------
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[margin=1.4cm,top=1.1cm,bottom=1.1cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Colors
+\definecolor{accent}{HTML}{6B3FA0}
+\definecolor{muted}{HTML}{5A5A5A}
+\definecolor{rule}{HTML}{E2D9F0}
+
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent, pdftitle={Sourav Sharma - Resume}, pdfauthor={Sourav Sharma}}
+
+% Remove page numbers
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Section formatting — consistent rule + spacing
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{}[\color{rule}\titlerule]
+\titlespacing*{\section}{0pt}{9pt}{4pt}
+
+% Tight, aligned list style
+\newlist{tight}{itemize}{1}
+\setlist[tight]{leftmargin=1.35em, itemsep=2pt, topsep=3pt, parsep=0pt, label=\textbullet}
+
+% Entry macro: plain paragraph with \hfill — no tabular/table structures,
+% so PDF-to-text extraction (used by ATS parsers) reads title/date and
+% subtitle/location in the correct left-to-right, top-to-bottom order.
+\newcommand{\entry}[4]{%
+  \noindent\textbf{#1}\hfill\textbf{#2}\\
+  \textit{\color{muted}#3}\hfill\textit{\color{muted}#4}%
+}
+
+\newcommand{\entrynoloc}[2]{%
+  \noindent\textbf{#1}\hfill\textbf{#2}%
+}
+
+% Project header (title left, stack right, single line)
+\newcommand{\projectentry}[2]{%
+  \noindent\textbf{#1}\hfill\textit{\color{muted}#2}%
+}
+
+% Skill row: bold label, content — plain paragraph with hanging indent
+\newcommand{\skillrow}[2]{%
+  \noindent\textbf{#1} #2\par\vspace{3pt}%
+}
+
+\begin{document}
+\small
+
+%------------------- HEADER -------------------
+\begin{center}
+  {\Huge\bfseries\color{black} Sourav Sharma}\\[3pt]
+  {\large\color{accent} Full Stack Developer}\\[5pt]
+  {\small
+  \href{mailto:souravsharma191919@gmail.com}{souravsharma191919@gmail.com}
+  \quad\textcolor{rule}{|}\quad
+  \href{https://souravsharma.online}{Portfolio}
+  \quad\textcolor{rule}{|}\quad
+  \href{https://linkedin.com/in/sourav-sharma}{LinkedIn}
+  \quad\textcolor{rule}{|}\quad
+  Himachal Pradesh, India
+  }
+\end{center}
+
+%------------------- SUMMARY -------------------
+\section{Summary}
+Experienced Full Stack Developer proficient in the MERN stack, Azure services, and Power BI. Skilled in building
+scalable applications with AI integration, real-time features, and data visualization. Passionate about delivering
+efficient solutions through proactive problem-solving and continuous learning.
+
+%------------------- EXPERIENCE -------------------
+\section{Experience}
+
+\entry{Software Engineer I}{June 2023 -- Present}{MAQ Software}{}
+
+\vspace{2pt}
+\begin{tight}
+  \item Developed a natural language to SQL generator using Agent AI, FastAPI, React, Azure OpenAI, and Azure Search.
+  \item Designed Databricks database architecture for user data storage and query history tracking.
+  \item Built an AI-based dashboard application that surfaces insights on data generated through an orchestrator agentic-flow solution, along with key KPIs.
+  \item Developed Databricks Apps and built an AI dashboard using Genie agents.
+  \item Applied Spark optimization techniques such as Liquid Clustering to improve table read/write performance, leveraging a strong understanding of Spark internals.
+\end{tight}
+
+\vspace{5pt}
+\entry{Associate Software Engineer}{July 2022 -- May 2023}{MAQ Software}{}
+
+\vspace{2pt}
+\begin{tight}
+  \item Built a data extraction system for Power BI RLS reports using DAX queries and XMLA endpoints with Snowflake integration.
+  \item Optimized Excel export using a SAX streaming approach, improving performance for large datasets.
+  \item Created a Power BI hierarchical slicer custom visual with search, sorting, filtering, and virtualization using react-window.
+\end{tight}
+
+%------------------- EDUCATION -------------------
+\section{Education}
+\entry{Bachelor of Engineering in Computer Science}{Aug 2021 -- Present}{Chitkara University Institute of Engineering \& Technology, Rajpura}{CGPA: 9.12/10}
+
+\vspace{5pt}
+\entrynoloc{Senior Secondary Education, DAV Public School Gohar, Mandi}{April 2021}
+
+%------------------- CERTIFICATIONS -------------------
+\section{Certifications}
+\begin{tight}
+  \item Microsoft Certified: Fabric Analytics Engineer Associate (DP-600)
+  \item Microsoft Certified: Fabric Data Engineer Associate (DP-700)
+  \item Microsoft Certified: SQL AI Developer Associate (DP-800)
+  \item GitHub Certified: GitHub Copilot (GH-300)
+  \item Microsoft Certified: AI Agent Builder Associate (AB-620)
+\end{tight}
+
+%------------------- PROJECTS -------------------
+\section{Projects}
+
+\projectentry{Cricket Scorer Application}{React Native}
+
+\vspace{2pt}
+\begin{tight}
+  \item Built a cricket scoring app that lets users track local match scores, create teams, and add players to start a match through a simple, intuitive flow.
+  \item Published on the Google Play Store for public use.
+\end{tight}
+
+\vspace{5pt}
+\projectentry{Youth Organization Web App}{React, Node.js, MongoDB, MUI, Vercel}
+
+\vspace{2pt}
+\begin{tight}
+  \item Built a role-based platform for a youth organization to manage monthly contributions and member records with RBAC.
+  \item Deployed a full-stack application on Vercel with Cloudinary for images and Nodemailer for email notifications.
+\end{tight}
+
+\vspace{5pt}
+\projectentry{Real-time Chat Application}{Vite.js, Chakra UI, Express.js, Socket.IO, MongoDB}
+
+\vspace{2pt}
+\begin{tight}
+  \item Built a real-time messaging app with WebSocket technology, reducing message delivery time by 50\%.
+  \item Implemented a notification system for new messages and group activities, increasing user engagement by 20\%.
+\end{tight}
+
+%------------------- TECHNICAL SKILLS -------------------
+\section{Technical Skills}
+\skillrow{Languages:}{JavaScript, TypeScript, Python, SQL}
+\skillrow{Frontend:}{React.js, React Native, Vite.js, Material-UI, Chakra UI, Tailwind CSS}
+\skillrow{Backend:}{Node.js, Express.js, FastAPI, Socket.IO, RESTful APIs}
+\skillrow{Databases:}{MongoDB, Databricks, Snowflake, MySQL}
+\skillrow{Cloud \& DevOps:}{Azure (OpenAI, Search), Azure DevOps, AWS, AWS ECS, ECR, Docker, Power BI, Vercel, Render, Git/GitHub, Cloudinary}
+\skillrow{Concepts:}{Data Structures \& Algorithms, OOP, Agentic AI Solutions, Agent AI, Real-time Communication, RBAC}
+
+\end{document}
